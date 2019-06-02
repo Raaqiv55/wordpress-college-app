@@ -95,6 +95,20 @@ function university_post_types(){
 		),
 		'menu_icon' => 'dashicons-heart'
 	));
+	//slider Post Type
+	register_post_type('slider', array(
+		'supports' => array('title'),
+		'public' => false,
+		'show_ui' => true,
+		'labels' => array(
+			'name' => 'Slider',
+			'add_new_item' => 'Add New slider',
+			'edit_item' => 'Edit slider',
+			'all_items' => 'All sliders',
+			'singular_name' => 'slider'
+		),
+		'menu_icon' => 'dashicons-heart'
+	));
 } 
 
 add_action('init', 'university_post_types');

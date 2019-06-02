@@ -77,7 +77,7 @@ $table_prefix = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', true );
 
 /* That's all, stop editing! Happy publishing. */
 
@@ -88,6 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once( ABSPATH . 'wp-settings.php' );
-define('NONCE_SALT','justputtingthishereforreferencesoyoucanspottheconstants');
+// define('NONCE_SALT','justputtingthishereforreferencesoyoucanspottheconstants');
  
 define('GOOGLE_MAPS_API_KEY', 'AIzaSyA7zbksOL_nex-HzYicNSk2rduM4joRBOI');
+

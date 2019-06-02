@@ -14,21 +14,24 @@ function university_custom_rest(){
 
 add_action('rest_api_init', 'university_custom_rest');
 
-function pageBanner($args = NULL){
+function pageBanner($args = NULL) {
+	$args = array();
 
-	if(!$args['title']){
-		$args['title'] = get_the_title();
+	if (!array_key_exists('title', $args)) {
+    $args['title'] = get_the_title();
+  }
+
+  if (!array_key_exists('subtitle', $args)) {
+    $args['subtitle'] = get_field('page_banner_subtitle');
 	}
-	if(!$args['subtitle']){
-		$args['subtitle'] = get_field('page_banner_subtitle');
-	}
-	if(!$args['photo']){
-		if(get_field('page_banner_background_image')){
-			$args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
-		}else{
-			$args['photo'] = get_theme_file_uri('/images/ocean.jpg');
-		}	
-	}
+	
+  if (!array_key_exists('photo', $args)) {
+    if (get_field('page_banner_background_image')) {
+      $args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
+    } else {
+      $args['photo'] = get_theme_file_uri('/images/ocean.jpg');
+    }
+  }
 	?>
 	<div class="page-banner">
     <div class="page-banner__bg-image" style="background-image: url(<?php echo $args['photo']; ?>);"></div>
