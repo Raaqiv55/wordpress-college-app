@@ -125,6 +125,14 @@ function noSubsAdminBar(){
 		show_admin_bar(false);
 	}
 }
+// Customize Login Screen Logo
+function ourLoginLogo()
+{
+  return get_bloginfo('name');
+}
+ 
+add_filter('login_headertitle', 'ourLoginLogo');
+
 // Customize Loing Screen
 add_action('login_headerurl', 'ourHeaderUrl');
 
